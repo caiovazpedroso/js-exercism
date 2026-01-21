@@ -5,7 +5,6 @@
 // and supported IDEs when implementing this exercise. You don't need to
 // understand types, JSDoc, or TypeScript in order to complete this JavaScript
 // exercise, and can completely ignore this comment block and directive.
-
 // 👋🏽 Hi again!
 //
 // A quick reminder about exercise stubs:
@@ -18,7 +17,6 @@
 // in idiomatic JavaScript, but some companies and style-guides do enforce them.
 //
 // Get those rates calculated!
-
 /**
  * The day rate, given a rate per hour
  *
@@ -26,9 +24,8 @@
  * @returns {number} the rate per day
  */
 export function dayRate(ratePerHour) {
-  return 0
+  return ratePerHour * 8
 }
-
 /**
  * Calculates the number of days in a budget, rounded down
  *
@@ -37,9 +34,9 @@ export function dayRate(ratePerHour) {
  * @returns {number} the number of days
  */
 export function daysInBudget(budget, ratePerHour) {
-  return 0
+  var rawDaysInBudget = budget/(ratePerHour*8)
+  return Math.floor(rawDaysInBudget)
 }
-
 /**
  * Calculates the discounted rate for large projects, rounded up
  *
@@ -49,5 +46,7 @@ export function daysInBudget(budget, ratePerHour) {
  * @returns {number} the rounded up discounted rate
  */
 export function priceWithMonthlyDiscount(ratePerHour, numDays, discount) {
-  return 0
+  var dailyRate = ratePerHour * 8
+  var discountedDays = Math.floor(numDays / 22) * 22
+  return Math.ceil((numDays * dailyRate) - (discountedDays * dailyRate * discount))
 }
